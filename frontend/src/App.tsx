@@ -1,9 +1,10 @@
 import { useState } from "react";
 
 function App() {
+  console.log(process.env.REACT_APP_IP);
   const [data, setData] = useState(1);
   const handleClickButton = () => {
-    fetch("http://localhost:8080/getnumber")
+    fetch(`http://${process.env.REACT_APP_IP}/api/getnumber`)
       .then((response) => response.json())
       .then((data) => {
         setData(data.number);
